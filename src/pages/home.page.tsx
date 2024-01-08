@@ -1,6 +1,7 @@
 import { FC, Fragment, ReactElement, useEffect, useState } from "react";
 import { ComponentAttributes } from "../interfaces/components";
 import { ProgressBar } from "../components/progress-bar";
+import styles from "../styles/pages/home.module.scss";
 
 export const HomePage: FC<ComponentAttributes> = (): ReactElement => {
     const [width, setWidth] = useState(window.innerWidth * 0.8);
@@ -26,15 +27,16 @@ export const HomePage: FC<ComponentAttributes> = (): ReactElement => {
             const percentage = (current / total) * 100;
 
             setPercentage(percentage);
-        }, 1000);
+        }, 300);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
         <Fragment>
-            <h2>{new Date().getFullYear()}</h2>
+            <h2 className={styles.year}>{new Date().getFullYear()}</h2>
             <ProgressBar width={width} percentage={percentage} />
+            <p className={styles.percentage}>{percentage.toFixed(6)}%</p>
         </Fragment>
     );
 };
