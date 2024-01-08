@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build"
+        "build": "tsc && vite build --emptyOutDir",
+        "deploy": "(cd ../../_firebase_hosting/theyear.bar && firebase deploy)"
     },
     "dependencies": {
         "react": "^18.2.0",
