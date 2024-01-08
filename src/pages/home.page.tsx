@@ -5,6 +5,7 @@ import styles from "../styles/pages/home.module.scss";
 
 export const HomePage: FC<ComponentAttributes> = (): ReactElement => {
     const [width, setWidth] = useState(window.innerWidth * 0.8);
+    const [year, setYear] = useState(new Date().getFullYear());
     const [percentage, setPercentage] = useState(0);
 
     const handleResize = () => setWidth(window.innerWidth * 0.8);
@@ -27,6 +28,7 @@ export const HomePage: FC<ComponentAttributes> = (): ReactElement => {
             const percentage = (current / total) * 100;
 
             setPercentage(percentage);
+            setYear(now.year);
         }, 300);
 
         return () => clearInterval(interval);
@@ -34,7 +36,7 @@ export const HomePage: FC<ComponentAttributes> = (): ReactElement => {
 
     return (
         <Fragment>
-            <h2 className={styles.year}>{new Date().getFullYear()}</h2>
+            <h2 className={styles.year}>{year}</h2>
             <ProgressBar width={width} percentage={percentage} />
             <p className={styles.percentage}>{percentage.toFixed(6)}%</p>
         </Fragment>
