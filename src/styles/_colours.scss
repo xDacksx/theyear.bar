@@ -1,0 +1,17 @@
+:root {
+    --black: #131313;
+    --white: #ffffff;
+
+    --glitch_red: #cc0f39;
+    --glitch_blue: #0ffbf9;
+
+    --background: var(--black);
+    --text: var(--white);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: var(--white);
+        --text: var(--black);
+    }
+}
