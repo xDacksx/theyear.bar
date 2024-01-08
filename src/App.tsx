@@ -7,6 +7,9 @@ export function App() {
             <main>
                 <Outlet />
             </main>
+            <a className="info" href="https://diegozar.com" target="_blank">
+                diegozar.com
+            </a>
         </Fragment>
     );
 }
